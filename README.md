@@ -1,50 +1,26 @@
-# React + TypeScript + Vite
+# Chrome Extension Template
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A template for developing a Chrome extension using Vite, React, and TypeScript.
 
-Currently, two official plugins are available:
+## Getting Started
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Install dependencies and run the development server:
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
+```
+npm install
+npm run dev
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+This will generate the `dist` directory.
 
-```js
-// eslint.config.js
-import react from "eslint-plugin-react";
+2. Load the extension in Chrome:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: "18.3" } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs["jsx-runtime"].rules,
-  },
-});
-```
+- Navigate to `chrome://extensions/`.
+- Enable the "Developer mode" toggle.
+- Click the "Load unpacked" and select the `dist` directory.
+
+You're all set!
+Look for "Chrome Extension" in your toolbar's Extensions menu and click it.
+You should see a popup with a "Popup" message.
+
+Hot reloading is enabled, so you can edit the source code and see the changes immediately.
